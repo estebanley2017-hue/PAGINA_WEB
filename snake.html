@@ -1,5 +1,4 @@
 SNAKE HECHO CON AYUDA DE CHATGPT
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,12 +6,83 @@ SNAKE HECHO CON AYUDA DE CHATGPT
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Juego Snake</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      font-family: "Press Start 2P", monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+
+    h1 {
+      color: #ffeb3b;
+      font-size: 20px;
+    }
+
+    .credit {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: -10px;
+      margin-bottom: 15px;
+    }
+
+    canvas {
+      border: 3px solid #ff4081;
+      margin: 20px 0;
+      background-color: #000;
+    }
+
+    button {
+      background-color: #ff4081;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-family: "Press Start 2P", monospace;
+    }
+
+    button:hover {
+      background-color: #ff80ab;
+    }
+
+    #score {
+      font-size: 16px;
+      color: #4caf50;
+      margin: 10px 0;
+    }
+
+    a {
+      color: #ccc;
+      text-decoration: none;
+      margin-top: 10px;
+      display: block;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
   <section class="snake-section">
     <h1>🐍 JUEGO SNAKE</h1>
+    <p class="credit">Hecho con ayuda de ChatGPT 💻</p>
+
     <canvas id="snakeGame" width="400" height="400"></canvas>
-    <p>Usa las flechas ← ↑ ↓ → para moverte. ¡Come la comida y no choques contigo mismo!</p>
+
+    <p id="score">Puntos: 0</p>
+
+    <button id="startBtn">▶️ Iniciar juego</button>
+    <button id="restartBtn" style="display:none;">🔄 Reiniciar</button>
+
+    <p>Usa las flechas ← ↑ ↓ → para moverte.<br>¡Come la comida y no choques contigo mismo!</p>
+
     <a href="index.html">← Volver al inicio</a>
   </section>
 
@@ -20,12 +90,22 @@ SNAKE HECHO CON AYUDA DE CHATGPT
     const canvas = document.getElementById("snakeGame");
     const ctx = canvas.getContext("2d");
     const box = 20;
-    let snake = [{ x: 10 * box, y: 10 * box }];
-    let direction = "RIGHT";
-    let food = {
-      x: Math.floor(Math.random() * 19 + 1) * box,
-      y: Math.floor(Math.random() * 19 + 1) * box
-    };
+
+    let snake, direction, food, score, game;
+    const startBtn = document.getElementById("startBtn");
+    const restartBtn = document.getElementById("restartBtn");
+    const scoreDisplay = document.getElementById("score");
+
+    function resetGame() {
+      snake = [{ x: 10 * box, y: 10 * box }];
+      direction = "RIGHT";
+      food = {
+        x: Math.floor(Math.random() * 20) * box,
+        y: Math.floor(Math.random() * 20) * box
+      };
+      score = 0;
+      scoreDisplay.textContent = "Puntos: " + score;
+    }
 
     document.addEventListener("keydown", event => {
       if (event.key === "ArrowLeft" && direction !== "RIGHT") direction = "LEFT";
@@ -35,17 +115,20 @@ SNAKE HECHO CON AYUDA DE CHATGPT
     });
 
     function draw() {
-      ctx.fillStyle = "#111";
+      ctx.fillStyle = "#000";
       ctx.fillRect(0, 0, 400, 400);
 
+      // Dibuja la serpiente
       for (let i = 0; i < snake.length; i++) {
         ctx.fillStyle = i === 0 ? "#ffeb3b" : "#ff4081";
         ctx.fillRect(snake[i].x, snake[i].y, box, box);
       }
 
+      // Dibuja la comida
       ctx.fillStyle = "#4caf50";
       ctx.fillRect(food.x, food.y, box, box);
 
+      // Calcula la nueva cabeza
       let headX = snake[0].x;
       let headY = snake[0].y;
       if (direction === "LEFT") headX -= box;
@@ -53,30 +136,53 @@ SNAKE HECHO CON AYUDA DE CHATGPT
       if (direction === "UP") headY -= box;
       if (direction === "DOWN") headY += box;
 
+      // Verifica colisión con paredes o cuerpo
+      const collision =
+        headX < 0 || headX >= 400 ||
+        headY < 0 || headY >= 400 ||
+        snake.some((seg, i) => i !== 0 && seg.x === headX && seg.y === headY);
+
+      if (collision) {
+  clearInterval(game);
+  setTimeout(() => {
+    alert("💀 GAME OVER 💀\nPuntaje final: " + score);
+    restartBtn.style.display = "inline-block";
+  }, 200); // 500 milisegundos = 0.5 segundos
+  return;
+}
+
+
+      // Comer la comida
       if (headX === food.x && headY === food.y) {
+        score++;
+        scoreDisplay.textContent = "Puntos: " + score;
         food = {
-          x: Math.floor(Math.random() * 19 + 1) * box,
-          y: Math.floor(Math.random() * 19 + 1) * box
+          x: Math.floor(Math.random() * 20) * box,
+          y: Math.floor(Math.random() * 20) * box
         };
       } else {
         snake.pop();
       }
 
+      // Mueve la cabeza
       const newHead = { x: headX, y: headY };
-
-      if (
-        headX < 0 || headX >= 400 ||
-        headY < 0 || headY >= 400 ||
-        snake.some(seg => seg.x === headX && seg.y === headY)
-      ) {
-        clearInterval(game);
-        alert("💀 Game Over 💀");
-      }
-
       snake.unshift(newHead);
     }
 
-    const game = setInterval(draw, 100);
+    startBtn.addEventListener("click", () => {
+      resetGame();
+      startBtn.style.display = "none";
+      restartBtn.style.display = "none";
+      game = setInterval(draw, 100);
+    });
+
+    restartBtn.addEventListener("click", () => {
+      resetGame();
+      restartBtn.style.display = "none";
+      game = setInterval(draw, 100);
+    });
   </script>
 </body>
 </html>
+
+
