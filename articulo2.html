@@ -2,53 +2,88 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Aquí iría un título si tuviera uno</title>
-  <link rel="stylesheet" href="style.css">
+  <title>El regalo más esperado</title>
   <style>
+    /* === FONDO GENERAL === */
     body {
-      background-color: #f5f5f5;
-      font-family: 'Georgia', serif;
       margin: 0;
       padding: 0;
+      background-color: #8b0000; /* rojo oscuro */
+      background-image: radial-gradient(white 1px, transparent 1px);
+      background-size: 40px 40px;
+      font-family: 'Georgia', serif;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
     }
 
+    /* === CAPA DE NIEVE === */
+    .snow-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0; /* detrás de todo */
+      pointer-events: none;
+    }
+
+    .snowflake {
+      position: absolute;
+      top: -10px;
+      color: white;
+      font-size: 1em;
+      user-select: none;
+      animation-name: fall;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      opacity: 0.9;
+      text-shadow: 0 0 4px rgba(255,255,255,0.8);
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0.8; }
+    }
+
+    /* === ENCABEZADO === */
     header {
       text-align: center;
       padding: 40px 20px 10px;
+      position: relative;
+      z-index: 2; /* encima de la nieve */
     }
 
     header h1 {
-      font-size: 2em;
-      color: #222;
+      font-size: 2.8em;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
       margin-bottom: 10px;
     }
 
     header a {
       text-decoration: none;
-      color: #555;
+      color: #f5f5f5;
       font-size: 0.95em;
     }
 
-    header h1 {
-  text-align: center;
-  font-size: 2.5em;
-  color: #111;
-  margin-bottom: 10px;
-}
-
+    /* === CONTENIDO === */
     main {
       display: flex;
       justify-content: center;
       align-items: flex-start;
       padding: 40px 20px;
+      position: relative;
+      z-index: 2; /* encima de la nieve */
     }
 
     .article-container {
-      background: white;
+      background: rgba(255, 255, 255, 0.93);
       border-radius: 12px;
       padding: 40px;
       max-width: 800px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
       text-align: justify;
       line-height: 1.7;
       color: #333;
@@ -57,20 +92,55 @@
     .article-container p {
       margin-bottom: 1.2em;
     }
+
+    .article-container p.center {
+      text-align: center;
+      font-size: 1.5em;
+    }
   </style>
 </head>
+
 <body>
+  <!-- CAPA DE NIEVE DETRÁS -->
+  <div class="snow-container" id="snow"></div>
+
   <header>
-    <h1>🏠 Aquí pondría el título si tuviera uno</h1>
+    <h1>El regalo más esperado</h1>
     <a href="index.html">← Volver al inicio</a>
   </header>
 
   <main>
     <div class="article-container">
-      <p><br>
-<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis sapiente atque, consectetur veniam neque dolore odit blanditiis nam odio, corrupti earum mollitia facilis soluta iste aspernatur rerum unde eum ea?</p></p>
+      <p>Por mucho tiempo lo único que Juanito quería para navidad era un carro a control remoto. Dibujaba un monigote amarillo, con dos manchas negras como ruedas, luego lo doblaba y lo metía entre las reamas del árbol de Navidad. La carta desaparecía antes del amanecer, recogida por el Niño Dios, por Papá Noel o quien sea al que se la estuviera mandando. Lo importante era el regalo.</p>
 
+      <p>Después de varios años de medias, ropa, balones y pequeños carritos de juguete, el Santa Claus impostor consiguió suficiente dinero para conseguir el dichoso carro. Amarillo, de ruedas grandes y vidrios negros; una réplica exacta de un jeep Willys de los sesenta. Tenía un control grande con muchos botones, una antena larga una señal de más de veinte metros, incluso reproducía música y radio.</p>
+
+      <p>Seguro del fantástico regalo que tenía, Santa Claus decidió que la entrega sería igual de espectacular. Gastó el mismo dinero (tal vez más) en una celebración navideña tan grande y especial que podría haber recibido al mismísimo Cristo. No escatimó en gastos. Había tamales, buñuelos, tres clases de pan de bono, chocolate caliente y avena fría; tenía una pista de baile para los papás del barrio y una piscina de pelotas para los pequeños. Y, claramente, un gran trono rojo donde entregar regalos a los niños, especialmente a su pequeño Juan, quien se sentará en sus piernas mientras ven los fuegos artificiales.</p>
+
+      <p class="center">…</p>
+
+      <p>Lo único que Juanito quiso después de ese veinticuatro de diciembre fue poder olvidar al pobre abuelo Toño. Recién pensionado, pero endeudado, don Antonio dio todo en su fiesta de navidad. Pero no sabía mucho de pólvora, ni de electricidad, ni de seguridad. Por lo que los regalos de Juanito, y de todos los niños del barrio, quedaron chamuscados en una gran pira de fuego; igual que el abuelo Toño, sentado en su trono rojo, con un ardiente jeep entre lo que quedaba de sus manos.</p>
     </div>
   </main>
+
+  <!-- SCRIPT DE NIEVE -->
+  <script>
+    const snowContainer = document.getElementById('snow');
+    const snowCount = 60; // cantidad de copos
+
+    for (let i = 0; i < snowCount; i++) {
+      const snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+      snowflake.textContent = '❄';
+      snowflake.style.left = Math.random() * 100 + 'vw';
+      snowflake.style.fontSize = Math.random() * 15 + 10 + 'px';
+      snowflake.style.animationDuration = Math.random() * 7 + 6 + 's';
+      snowflake.style.animationDelay = Math.random() * 5 + 's';
+      snowContainer.appendChild(snowflake);
+    }
+  </script>
 </body>
 </html>
+
+
+
