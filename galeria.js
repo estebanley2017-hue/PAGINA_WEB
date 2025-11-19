@@ -39,8 +39,7 @@ const container = document.getElementById("gallery-container");
 
 // Captions opcionales
 const captions = {
-  "gato_1.jpg": "Gato enfermero en la veterinaria",
-  "IMG_20210414_102040.jpg": "Van a ver muchos gatos en la ventana",
+    "IMG_20210414_102040.jpg": "Van a ver muchos gatos en la ventana",
   "isis_acostada.jpg": "Posuda",
   "migi.jpg": "Migi observando"
 };
@@ -82,5 +81,6 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.5 });
 
 document.querySelectorAll(".polaroid").forEach(el => observer.observe(el));
+
 
 
