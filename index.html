@@ -41,7 +41,7 @@
 
   <!-- ===== ARTÍCULOS ===== -->
   <section class="content" id="articulos">
-    <h2>Artículos recientes</h2>
+    <h2>Cosas que he escrito</h2>
     <div class="posts">
       <article>
         <h3 style="font-family:'Anton', sans-serif;">🏚️ El apartamento</h3>
@@ -56,8 +56,8 @@
       </article>
 
       <article>
-        <h3 style="font-family:'Special Elite', cursive;">⚡ TÍTULO DE OTRO BLOG 2</h3>
-        <p>No tengo nada escrito jaja.</p>
+        <h3 style="font-family:'Special Elite', cursive;">⚡Poesía</h3>
+        <p>Algunos poemas, sin ningún orden en particular</p>
         <a href="articulo3.html">Leer más →</a>
       </article>
     </div>
@@ -65,35 +65,67 @@
 
   <!-- ===== GALERÍA ===== -->
   <section class="gallery" id="galeria">
-    <h2>Galería visual</h2>
+    <h2>
+      <a href="galeria.html" style="text-decoration:none; color:inherit;">
+        Galería visual
+      </a>
+    </h2>
+
     <div class="images">
-      <img src="NEUROMANCER.jpg" alt="punk">
-      <img src="POLLITO.jpg" alt="grunge">
-      <img src="POSE.jpg" alt="guitar">
+
+      <a href="galeria.html">
+        <img src="isis_acostada.jpg" alt="punk">
+      </a>
+
+      <a href="galeria.html">
+        <img src="migi.jpg" alt="grunge">
+      </a>
+
+      <a href="galeria.html">
+        <img src="isis_mirando.jpg" alt="guitar">
+      </a>
+
     </div>
   </section>
+
 
   <!-- ===== INTENTO DE VIDEOJUEGO ===== -->
-  <section class="game-dev" id="videojuego">
-    <h2>🎮 Intento de videojuego</h2>
-    <p>
-      Este espacio está reservado para mi experimento de videojuego en desarrollo.  
-      Aquí subiré bocetos, sprites, ideas de jugabilidad y avances de programación.  
-      A veces falla, otras veces también, pero así se aprende 🤘.
-    </p>
+<section class="game-dev" id="videojuego">
+  <h2>🎮 Intento de videojuego</h2>
+  <p>
+    Este espacio está reservado para mi experimento de videojuego. 
+    El snake lo realicé con ayuda de ChatGpt.
+    El otro .EXE lo realicé en Godot, pero es un primer intento. 
+       (Me ayudé del siguiente tutorial: 
+    <a href="https://youtu.be/eQ_HBvtdoiU?si=cUPHMFHNgyx526Rc" target="_blank">
+      https://youtu.be/eQ_HBvtdoiU?si=cUPHMFHNgyx526Rc
+    </a>).
+    🤘.
+  </p>
 
-    <div class="game-links">
-      <a href="snake.html" class="btn">🐍 Jugar SNAKE</a>
-      <a href="godot.html" class="btn">🎮 Intento en GODOT</a>
-    </div>
+  <div class="game-links">
+    <a href="snake.html" class="btn">🐍 Jugar SNAKE</a>
+    <a href="godot.html" class="btn">🎮 Intento en GODOT</a>
+  </div>
 
-    <div class="images">
+  <div class="images">
+
+    <!-- Imagen del snake clickeable -->
+    <a href="snake.html">
       <img src="snake.png" alt="concepto videojuego">
-      <img src="pixel_mockup.png" alt="pixel art">
-    </div>
-  </section>
+    </a>
+
+    <!-- Imagen del juego de Godot clickeable -->
+    <a href="godot.html">
+      <img src="jueguito.png" alt="pixel art">
+    </a>
+
+  </div>
+</section>
+
 
   <!-- ===== EX~LIBRIS ===== -->
+   
   <section class="exlibris" id="exlibris">
     <h2>📚 EX~LIBRIS</h2>
     <p>
@@ -133,6 +165,113 @@
     </div>
   </section>
 
+<!-- ===== TIKTOKS & REELS ===== -->
+<style>
+/* --- Estilos de la galería --- */
+.video-gallery-container {
+  margin: 60px 0;
+  padding: 20px;
+  background: #ffffff; /* fondo oscuro tipo galería */
+  border-radius: 16px;
+}
+
+.video-gallery-container h2 {
+  color: rgb(0, 0, 0);
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.video-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+/* Contenedor que mantiene proporción vertical 9:16 */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 177.78%; /* 16:9 invertido => 9:16 vertical */
+  background: black;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Asegura que los embeds llenen la caja */
+.video-wrapper iframe,
+.video-wrapper blockquote {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+</style>
+
+<section class="video-gallery-container">
+  <h2>TikToks y Reels porque el profesor los pidió</h2>
+
+  <div class="video-gallery">
+
+    <!-- TikTok #1 -->
+    <div class="video-wrapper">
+      <blockquote class="tiktok-embed"
+        cite="https://www.tiktok.com/@jairo.esteban.ley/video/7569379458856111368"
+        data-video-id="7569379458856111368">
+        <section></section>
+      </blockquote>
+    </div>
+
+    <!-- Reel #1 -->
+    <div class="video-wrapper">
+      <blockquote class="instagram-media"
+        data-instgrm-permalink="https://www.instagram.com/reel/DJK-9cgsM5t/"
+        data-instgrm-version="14">
+      </blockquote>
+    </div>
+
+    <!-- Reel #2 -->
+    <div class="video-wrapper">
+      <blockquote class="instagram-media"
+        data-instgrm-permalink="https://www.instagram.com/reel/DBCwpdtpJNo/"
+        data-instgrm-version="14">
+      </blockquote>
+    </div>
+
+    <!-- Reel #3 -->
+    <div class="video-wrapper">
+      <blockquote class="instagram-media"
+        data-instgrm-permalink="https://www.instagram.com/reel/DQkqZeyDKCC/"
+        data-instgrm-version="14">
+      </blockquote>
+    </div>
+
+  </div>
+</section>
+
+<script async src="https://www.tiktok.com/embed.js"></script>
+<script async src="https://www.instagram.com/embed.js"></script>
+
+<!-- ===== FLUJO DE TRABAJO ===== -->
+<section class="flujodetrabajo" id="flujodetrabajo">
+    <h2>FLUJO DE TRABAJO</h2>
+    <p>
+      Aquí va un documento muy sencillo que tiene el flujo de trabajo para la realización de 
+      esta página web y su contenido.
+    </p>
+
+    <!-- BOTÓN PARA ABRIR EL PDF -->
+    <a class="btn-pdf" href="flujo_trabajo.pdf" target="_blank">
+        Ver documento PDF
+    </a>
+</section>
+
   <!-- ===== PIE DE PÁGINA ===== -->
   <footer id="contacto">
     <p>© 2025 Punk Blog | Diseñado con rabia y color ✊</p>
@@ -140,6 +279,9 @@
   <script src="main.js"></script>
 </body>
 </html>
+
+
+
 
 
 
