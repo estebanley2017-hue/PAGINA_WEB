@@ -1,4 +1,6 @@
-/* Estilo punk vibrante */
+/* =========================================================
+   TIPOGRAFÍA GLOBAL Y RESETEO
+   ========================================================= */
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
@@ -7,7 +9,9 @@ body {
   overflow-x: hidden;
 }
 
-/* Encabezado */
+/* =========================================================
+   ENCABEZADO
+   ========================================================= */
 .header {
   background: #1c1c1c;
   display: flex;
@@ -39,7 +43,9 @@ body {
   color: #ffeb3b;
 }
 
-/* Hero section */
+/* =========================================================
+   HERO
+   ========================================================= */
 .hero {
   background: linear-gradient(135deg, #ff4081, #ff9800);
   color: #fff;
@@ -69,7 +75,22 @@ body {
   font-weight: 300;
 }
 
-/* Artículos */
+/* =========================================================
+   CONTENIDO GENERAL
+   ========================================================= */
+section {
+  padding: 60px 80px;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 40px 20px;
+  }
+}
+
+/* =========================================================
+   ARTÍCULOS — CONTENEDOR GENERAL
+   ========================================================= */
 .content {
   background: #fff;
   color: #111;
@@ -89,6 +110,9 @@ body {
   margin-top: 2em;
 }
 
+/* ======================
+   ARTÍCULO INDIVIDUAL
+   ====================== */
 article {
   background: #f9f9f9;
   padding: 1.5em;
@@ -105,7 +129,21 @@ article h3 {
   color: #ff4081;
 }
 
-/* Galería */
+#articulo1 {
+  background: linear-gradient(
+    rgba(0,0,0,0.4),
+    rgba(0,0,0,0.4)
+  ),
+  url("POLLITO.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 2rem;
+  border-radius: 20px;
+}
+
+/* =========================================================
+   GALERÍA
+   ========================================================= */
 .gallery {
   padding: 3em 2em;
   background: #222;
@@ -139,16 +177,9 @@ article h3 {
   transform: rotate(-3deg) scale(1.05);
 }
 
-/* Footer */
-footer {
-  background: #111;
-  text-align: center;
-  padding: 1.5em;
-  font-size: 0.9em;
-  color: #ffeb3b;
-}
-
-/* --- Sección Snake Game --- */
+/* =========================================================
+   SECCIÓN SNAKE GAME
+   ========================================================= */
 .snake-section {
   background: #111;
   color: #ffeb3b;
@@ -171,20 +202,14 @@ footer {
   margin-bottom: 1em;
 }
 
-/* ===== SEPARACIÓN GENERAL ===== */
-section {
-  padding: 60px 80px;
-}
-
-@media (max-width: 768px) {
-  section {
-    padding: 40px 20px;
-  }
-}
-
-/* ===== EXLIBRIS ===== */
+/* =========================================================
+   EXLIBRIS
+   ========================================================= */
 .exlibris {
+  background-color: #111;
+  padding: 60px 20px;
   text-align: center;
+  color: white;
 }
 
 .exlibris-grid {
@@ -212,29 +237,108 @@ section {
 }
 
 .ex-item h3 {
+  font-size: 2.2rem;
   margin-top: 10px;
 }
-.ex-item h3 {
-  font-size: 2.2rem;  
-}
+
 .ex-item p {
   font-size: 0.9em;
   color: #ffffff;
 }
 
-/* Tipografías distintas para cada título */
-.titulo-aguero {
-  font-family: 'Oswald', sans-serif;
-  color: #ff0044;
+.exlibris-grid .ex-item p em {
+  color: #ccc;
 }
 
-.titulo-gravedad {
-  font-family: 'Cinzel', serif;            
-  color: #0055aa;
+/* Títulos con tipografías específicas */
+.titulo-aguero { font-family: 'Oswald', sans-serif;  color: #ff0044; }
+.titulo-gravedad { font-family: 'Cinzel', serif;     color: #0055aa; }
+.titulo-parto { font-family: 'Lucida Handwriting', cursive; color: #00cc66; }
+
+/* =========================================================
+   TIKTOKS
+   ========================================================= */
+.tiktoks {
+  background: #ff4081;
+  padding: 60px 20px;
+  text-align: center;
+  color: white;
 }
 
-.titulo-parto {
-  font-family: 'Lucida Handwriting', cursive;
-  color: #00cc66;
+.tiktoks h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: 2.3em;
+  margin-bottom: 20px;
 }
+
+.tiktoks p {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+.video-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+/* Contenedor vídeo */
+.video-box {
+  width: 350px;
+  height: 600px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Escala del embed */
+.video-box blockquote {
+  transform: scale(0.85);
+  transform-origin: top center;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+footer {
+  background: #111;
+  text-align: center;
+  padding: 1.5em;
+  font-size: 0.9em;
+  color: #ffeb3b;
+}
+
+
+#articulo-1 {
+  background-color: #c8a878;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      rgba(0,0,0,0.04) 0px,
+      rgba(0,0,0,0.04) 2px,
+      rgba(255,255,255,0.04) 4px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(0,0,0,0.03) 0px,
+      rgba(0,0,0,0.03) 1px,
+      rgba(255,255,255,0.03) 3px
+    );
+}
+
+/* Fondo tipo papel reciclado — NO interfiere con nada existente */
+.poemas-bg {
+  background-color: #f3efe4;
+  background-image: url("fondo_papel.jpg");
+  background-size: 300px;
+  background-repeat: repeat;
+}
+
+
 
