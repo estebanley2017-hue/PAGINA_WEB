@@ -2,11 +2,6 @@ const images = [
 "migi.jpg",
 "isis_mirando.jpg",
 "isis_acostada.jpg",
-"IMG_20231013_200026_835.jpg",
-"IMG_20231015_103655.jpg",
-"IMG_20231016_132133.jpg",
-"IMG_20231026_105951.jpg",
-"IMG_20231211_155253.jpg",
 "IMG_20251013_101301.jpg",
 "IMG_20251009_163534.jpg",
 "IMG_20251006_094217.jpg",
@@ -81,6 +76,7 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.5 });
 
 document.querySelectorAll(".polaroid").forEach(el => observer.observe(el));
+
 
 
 
