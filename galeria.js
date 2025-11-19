@@ -7,17 +7,6 @@ const images = [
 "IMG_20231016_132133.jpg",
 "IMG_20231026_105951.jpg",
 "IMG_20231211_155253.jpg",
-"IMG_20231212_102308.jpg",
-"IMG_20231224_153828.jpg",
-"IMG_20240120_143500.jpg",
-"IMG_20240303_095529.jpg",
-"IMG_20240328_150239.jpg",
-"IMG_20240328_185212.jpg",
-"IMG_20240329_084935.jpg",
-"IMG_20240923_160842.jpg",
-"IMG_20241104_162918.jpg",
-"IMG_20250503_130317.jpg",
-"IMG-20231016-WA0000.jpg",
 "IMG_20251013_101301.jpg",
 "IMG_20251009_163534.jpg",
 "IMG_20251006_094217.jpg",
@@ -93,4 +82,5 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.5 });
 
 document.querySelectorAll(".polaroid").forEach(el => observer.observe(el));
+
 
