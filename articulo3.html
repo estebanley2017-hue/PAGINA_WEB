@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Aquí iría un título si tuviera uno</title>
+  <title>Poemas</title>
   <link rel="stylesheet" href="style.css">
   <style>
     body {
@@ -18,8 +18,9 @@
     }
 
     header h1 {
-      font-size: 2em;
-      color: #222;
+      text-align: center;
+      font-size: 2.5em;
+      color: #111;
       margin-bottom: 10px;
     }
 
@@ -29,48 +30,117 @@
       font-size: 0.95em;
     }
 
-    header h1 {
-  text-align: center;
-  font-size: 2.5em;
-  color: #111;
-  margin-bottom: 10px;
-}
-
     main {
       display: flex;
-      justify-content: center;
-      align-items: flex-start;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
       padding: 40px 20px;
     }
 
-    .article-container {
+    /* Cada poema es su propia caja */
+    .poema-box {
       background: white;
       border-radius: 12px;
-      padding: 40px;
+      padding: 30px 35px;
       max-width: 800px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      text-align: justify;
+      width: 100%;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       line-height: 1.7;
       color: #333;
+      white-space: pre-line;
+      border-left: 6px solid #444;
     }
 
-    .article-container p {
-      margin-bottom: 1.2em;
+    .poema-titulo {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-bottom: 18px;
+      color: #222;
+      text-align: left;
     }
   </style>
 </head>
-<body>
+
+
+  <body class="poemas-bg">
   <header>
-    <h1>Aquí ponría el título si tuviera uno</h1>
+    <h1>Poemas</h1>
     <a href="index.html">← Volver al inicio</a>
   </header>
 
   <main>
-    <div class="article-container">
-      <p><br>
-<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis sapiente atque, consectetur veniam neque dolore odit blanditiis nam odio, corrupti earum mollitia facilis soluta iste aspernatur rerum unde eum ea?</p></p>
 
+    <!-- CAJA 1: Para amarme -->
+    <div class="poema-box">
+      <div class="poema-titulo">Para amarme</div>
+Para amarme debes saber  
+que tengo una cicatriz que me hice de niño.
+
+Que mi risa es estúpida y sonora  
+como el ruido de un tractor.  
+Y que ronco al dormir,  
+y algunas veces despierto.
+
+Para amarme debes tener,  
+las manos de un panadero.  
+Los oídos de un pájaro carpintero,  
+que escucha los gusanos bajo la corteza.
+
+Y un par de brazos como ríos,  
+largos, fuertes y fluidos.
+
+Para amarme puedes hacer muchas cosas.  
+Tomar cada cabello y hacerlo volar como pétalo.  
+Decir a mis entrañas que no las harás sangrar.  
+Cantar canciones de cuna que acaricien la piel de un cocodrilo.
+
+Para amarme debes saber,  
+que tengo un corazón, aunque no palpite.
+
+Que lloro con suspiros,  
+que solo sentirán los dientes de león.  
+Que amo con cada centímetro de carne,  
+a pesar de ser árida, fría y fea.
     </div>
+
+    <!-- CAJA 2: Topografía de una herida -->
+    <div class="poema-box">
+      <div class="poema-titulo">Topografía de una herida</div>
+Duele el costado izquierdo del alma,
+pozo antes vivo donde 
+ríos de lágrimas nacen
+pero no alcanzan a escapar 
+por los acantilados de los ojos.
+
+No sé por qué duele, 
+si cada vez es más rápido y seco,
+pero duele.
+
+Colinas palpitantes de carne viva
+tiemblan, se sacuden y lloran.
+Ahora valles putridos,
+se descomponen en quejidos silenciosos 
+y en llantos corrosivos.
+
+Duele mucho, muchísimo,
+la tierra removida y aplanada.
+la herida que no cierra. 
+
+La médula del alma
+daba vida a brotes de estrellas y de flores,
+gran cosecha se esperaba.
+pero solo tengo ramos de ampollas
+y una cabeza yerma y agonizante.
+
+Manchas de sangre seca 
+cubren valles y montañas de esta prisión,
+que guarda el dolor del costado izquierdo del alma
+    </div>
+
   </main>
 </body>
 </html>
+
+
+
